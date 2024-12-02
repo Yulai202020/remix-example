@@ -32,6 +32,8 @@ export async function action({ request }: ActionFunctionArgs) {
     const firstName = formData.get("firstName");
     const lastName = formData.get("lastName");
 
+    console.log("data resived", formData);
+
     db.exec(`INSERT INTO persons(firstName, lastName) VALUES ('${firstName}', '${lastName}');`);
 
     return null;
@@ -41,15 +43,15 @@ function fullstack() {
     const data: Data[] = useLoaderData();
     return (
         <>
-        {data.map((item, index) => (
+        {/* {data.map((item, index) => (
             <div key={index}>
                 <p>ID: {item.id}</p>
                 <p>First Name: {item.firstName}</p>
                 <p>Last Name: {item.lastName}</p>
             </div>
-        ))}
+        ))} */}
 
-        <Form method="post">
+        <Form>
             <div>
                 <label htmlFor="firstName">First name</label>
                 <input name="firstName"type="text" />
